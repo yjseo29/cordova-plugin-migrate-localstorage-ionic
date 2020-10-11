@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-migrate-localstorage-ionic" version="1.0.0">
+    <name>Migrate WebView Data</name>
+    <description>Migrate LocalStorage data from UIWebView to WKWebView and from file-urls to localhost:8080 on iOS/Android</description>
+    <license>Apache 2.0</license>
+    <keywords>ecosystem:cordova,cordova,cordova-ios,uiwebview,wkwebview,localstorage</keywords>
+    <repo>https://github.com/yjseo29/cordova-plugin-migrate-localstorage-ionic.git</repo>
+    <issue>https://github.com/yjseo29/cordova-plugin-migrate-localstorage-ionic/issues/</issue>
+
+    <dependency id="cordova-plugin-ionic-webview" version=">=4.0.0" />
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MigrateLocalStorage">
+                <param name="android-package" value="com.cordova.plugin.android.migrate.localstorage.MigrateLocalStorage" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/MigrateLocalStorage.java" target-dir="src/com/cordova/plugin/android/migrate/localstorage" />
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MigrateLocalStorage">
+                <param name="ios-package" value="MigrateLocalStorage" onload="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/MigrateLocalStorage.h" />
+        <source-file src="src/ios/MigrateLocalStorage.m" />
+    </platform>
+
+</plugin>

@@ -1,0 +1,23 @@
+{
+  "name": "cordova-plugin-migrate-localstorage-ionic",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-plugin-migrate-localstorage-ionic",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "description": "Migrate LocalStorage data from UIWebView to WKWebView, or from file url to http url in android",
+  "repository": "https://github.com/yjseo29/cordova-plugin-migrate-localstorage-ionic.git",
+  "issue": "https://github.com/yjseo29/cordova-plugin-migrate-localstorage-ionic/issues/",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova",
+    "cordova-ios",
+    "uiwebview",
+    "wkwebview",
+    "localstorage"
+  ],
+  "author": "yjteam",
+  "license": "Apache 2.0"
+}
