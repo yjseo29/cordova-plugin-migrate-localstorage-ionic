@@ -4,6 +4,7 @@
   "cordova": {
     "id": "cordova-plugin-migrate-localstorage-ionic",
     "platforms": [
+      "android",
       "ios"
     ]
   },
