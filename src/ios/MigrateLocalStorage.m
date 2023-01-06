@@ -1,4 +1,5 @@
 #import "MigrateLocalStorage.h"
+#import <Cordova/NSDictionary+CordovaPreferences.h>
 
 @implementation MigrateLocalStorage
 
@@ -48,9 +49,11 @@
     NSString* bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
     target = [target stringByAppendingPathComponent:bundleIdentifier];
 #endif
-
-    // !!!!!! hostname change
-    target = [target stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_hostname_0.localstorage"];
+    
+    NSDictionary* settings = self.commandDelegate.settings;
+    NSString* hostname = [settings cordovaSettingForKey:@"Hostname"];
+    if(hostname == nil) hostname = @"localhost";
+    target = [target stringByAppendingPathComponent:[NSString stringWithFormat:@"WebsiteData/LocalStorage/ionic_%@_0.localstorage", hostname]];
 
     // Only copy data if no existing localstorage data exists yet for wkwebview
     if (![[NSFileManager defaultManager] fileExistsAtPath:target]) {
